@@ -1,5 +1,18 @@
 # README
 
+#データベース設計
+
+## membersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :group
+- belongs_to :user
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
@@ -14,18 +27,6 @@ Things you may want to cover:
 * Database creation
 
 * Database initialization
-
-## membersテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
-
-### Association
-- belongs_to :group
-- belongs_to :user
-
 
 * How to run the test suite
 
