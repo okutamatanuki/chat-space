@@ -30,6 +30,7 @@
 
 ### Association
 - has_many :chats
+- has_many :members
 - has_many :users, throudh: :members
 
 ## chatsテーブル
