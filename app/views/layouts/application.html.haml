@@ -7,5 +7,36 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    
-    = yield
+    .wrapper
+      .chat-side
+        .side-header
+          %p.side-header__user-name ユーザー名
+
+          %ul.user-menu
+            %li.user-menu__edit-user
+            -# ユーザー情報の編集ボタンとリンク(font awesome)
+            %li.user-menu__new-group
+            -# グループの新規作成ボタンとリンク(font awesome)
+        .groups
+          -# グループを生成するごとに .groupとそのグループへのリンクが生成される
+          -# リンクはリンクタグに変更
+          %a{ href: '#'} 
+          .group
+            %p.group__group-name TEST GROUP
+            %p.group__latest-message latest message
+      
+      .chat-main
+        .main-header
+          -# .current_groupの後に data-group_idが続くが、なにかわからないので、今の時点で入れない
+          .current-group 
+            %h2.current-group__name TEST GROUP
+            %ul.member-list
+              %li.member-list__member ユーザー１
+              %li.member-list__member ユーザー２
+
+          -# リンクはリンクタグに変更(グループの編集画面へ)
+          %a{ href: '#'}
+            .main-header__edit-btn Edit
+          
+          = yield
+        .form
