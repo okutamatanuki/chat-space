@@ -6,7 +6,10 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
   %body
+    .flash-box
     .wrapper
       .chat-side
         .side-header
@@ -14,29 +17,37 @@
 
           %ul.user-menu
             %li.user-menu__edit-user
-            -# ユーザー情報の編集ボタンとリンク(font awesome)
+              = link_to '#' do
+                %i.fa.fa-edit
             %li.user-menu__new-group
-            -# グループの新規作成ボタンとリンク(font awesome)
+              = link_to '#' do
+                %i.fa.fa-cog
         .groups
           -# グループを生成するごとに .groupとそのグループへのリンクが生成される
-          -# リンクはリンクタグに変更
-          %a{ href: '#'} 
           .group
-            %p.group__group-name TEST GROUP
-            %p.group__latest-message latest message
+            %p.group__group-name 
+              = link_to 'TEST GROUP','#'
+            %p.group__latest-message 
+              = link_to 'latest message','#'
       
       .chat-main
         .main-header
-          -# .current_groupの後に data-group_idが続くが、なにかわからないので、今の時点で入れない
+          -# .current_groupの後に data-group_idが続く.今の時点で入れない
           .current-group 
             %h2.current-group__name TEST GROUP
             %ul.member-list
-              %li.member-list__member ユーザー１
+              %li.member-list__member Member: ユーザー１
               %li.member-list__member ユーザー２
-
-          -# リンクはリンクタグに変更(グループの編集画面へ)
-          %a{ href: '#'}
-            .main-header__edit-btn Edit
+          .main-header__edit-btn 
+            = link_to 'Edit', '#'
           
-          = yield
-        .form
+        = yield
+
+        -# フォーム実装時にform_forに変更
+        .form 
+          .new-message
+            .input-box
+              %input{type: "text", class: "input-box__text", placeholder: "type a message"}
+              %label.image_label
+                %i.fa.fa-image
+            %input{type: "submit", value: "Send", class: "new-message__submit-btn"}
