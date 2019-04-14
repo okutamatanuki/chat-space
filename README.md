@@ -3,7 +3,7 @@
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, index: true|
+|name|string|null: false, unuque: true, index: true|
 
 ### Association
 - has_many :messages
