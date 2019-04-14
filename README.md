@@ -6,7 +6,7 @@
 |name|string|null: false, index: true|
 
 ### Association
-- has_many :chats
+- has_many :messages
 - has_many :members
 - has_many :groups, through: :members
 
@@ -26,14 +26,14 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|chat_id|references|null :false, foreign_key: true|
+|message_id|references|null :false, foreign_key: true|
 
 ### Association
-- has_many :chats
+- has_many :messages
 - has_many :members
 - has_many :users, throudh: :members
 
-## chatsテーブル
+## Messagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
