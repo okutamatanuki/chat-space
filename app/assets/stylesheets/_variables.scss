@@ -1,6 +1,7 @@
 $accent-color: #38aef0;
 $letter-white: #fff;
-$message-text-color: #434a54;;
+$message-text-color: #434a54;
+$alert_orange: #F35500;
 
 @mixin clearfix{
   &:after{
@@ -10,7 +11,7 @@ $message-text-color: #434a54;;
   }
 }
 
-@mixin right-content(){
+@mixin right-content{
 width: calc(100% - 300px);
 box-sizing: border-box;
 }

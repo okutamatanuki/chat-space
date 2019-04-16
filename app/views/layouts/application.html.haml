@@ -6,48 +6,10 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    %link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.8.1/css/all.css", :integrity => "sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf", :rel => "stylesheet"}/
 
   %body
-    .flash-box
+    = render 'shared/notifications'
+    = yield
+
     .wrapper
-      .chat-side
-        .side-header
-          %p.side-header__user-name ユーザー名
-
-          %ul.user-menu
-            %li.user-menu__edit-user
-              = link_to '#' do
-                %i.fa.fa-edit
-            %li.user-menu__new-group
-              = link_to '#' do
-                %i.fa.fa-cog
-        .groups
-          -# グループを生成するごとに .groupとそのグループへのリンクが生成される
-          .group
-            %p.group__group-name 
-              = link_to 'TEST GROUP','#'
-            %p.group__latest-message 
-              = link_to 'latest message','#'
-      
-      .chat-main
-        .main-header
-          -# .current_groupの後に data-group_idが続く.今の時点で入れない
-          .current-group 
-            %h2.current-group__name TEST GROUP
-            %ul.member-list
-              %li.member-list__member Member: ユーザー１
-              %li.member-list__member ユーザー２
-          .main-header__edit-btn 
-            = link_to 'Edit', '#'
-          
-        = yield
-
-        -# フォーム実装時にform_forに変更
-        .form 
-          .new-message
-            .input-box
-              %input{type: "text", class: "input-box__text", placeholder: "type a message"}
-              %label.image_label
-                %i.fa.fa-image
-            %input{type: "submit", value: "Send", class: "new-message__submit-btn"}

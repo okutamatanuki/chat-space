@@ -1,0 +1,19 @@
+.chat-side
+  .side-header 
+    %p.side-header__user-name
+      -# = current_user.name
+
+    %ul.user-menu
+      %li.user-menu__edit-user
+        = link_to edit_user_path(current_user) do
+          %i.fa.fa-cog
+      %li.user-menu__new-group
+        = link_to '#' do
+          %i.fa.fa-edit
+  .groups
+    -# グループを生成するごとに .groupとそのグループへのリンクが生成される
+    .group
+      %p.group__group-name 
+        = link_to 'TEST GROUP','#'
+      %p.group__latest-message 
+        = link_to 'latest message','#'

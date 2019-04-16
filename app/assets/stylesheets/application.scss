@@ -3,6 +3,21 @@
 @import "./user";
 @import "./variables";
 
+// flash --------------------------------------//
+.notification {
+  .notice {
+    background-color: $accent-color;
+    color: $letter-white;
+    text-align: center;
+  }
+
+  .alert {
+    background-color: $alert_orange;
+    color: $letter-white;
+    text-align: center;
+  }
+}
+
 // chat-side ----------------------------------//
 
 .side-header{
