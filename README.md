@@ -10,7 +10,7 @@
 - has_many :members
 - has_many :groups, through: :members
 
-## membersテーブル
+## group_userテーブル
 
 |Column|Type|Options|
 |------|----|-------|
