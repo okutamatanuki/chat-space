@@ -1,0 +1,9 @@
+.chat-main
+  .main-header
+    .current-group 
+      %h2.current-group__name TEST GROUP
+      %ul.member-list
+        %li.member-list__member Member: ユーザー１
+        %li.member-list__member ユーザー２
+    .main-header__edit-btn 
+      = link_to 'Edit', edit_group_path(current_user)

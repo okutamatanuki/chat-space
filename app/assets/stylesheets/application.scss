@@ -1,49 +1,24 @@
-// variables -move later ----------------------/
-$accent-color: #38aef0;
-$letter-white: #fff;
-$message-text-color: #434a54;;
+// @import ------------------------------------//
+@import "./reset";
+@import "./user";
+@import "./variables";
+@import "./group";
+// @import "./chat.scss";
+// @import "./side-bar.scss"
 
-@mixin clearfix(){
-    &:after{
-      content: "";
-      display: block;
-      clear: both;
-    }
-}
-
-@mixin right-content(){
-  width: calc(100% - 300px);
-  box-sizing: border-box;
-}
-
-@mixin letter-gray{
-  color: #999;
-  font-size: 12px;
-}
-
-
-// layout 全体------------------------------------//
-.wrapper{
-  @include clearfix();
-}
-
-.flash-box{
-  background: $accent-color;
-}
-
-a{
-  text-decoration: none;
-  &:visited{
-    color: inherit;
+// flash --------------------------------------//
+.notification {
+  .notice {
+    background-color: $accent-color;
+    color: $letter-white;
+    text-align: center;
   }
-}
 
-.chat-side{
-  width: 300px;
-  height: 100vh;
-  background: #2f3e51;
-  color: $letter-white;
-  float: left;
+  .alert {
+    background-color: $alert_orange;
+    color: $letter-white;
+    text-align: center;
+  }
 }
 
 // chat-side ----------------------------------//
@@ -200,4 +175,3 @@ a{
   margin: 10px 0 40px 0;
 }
 
-@import "./reset";
