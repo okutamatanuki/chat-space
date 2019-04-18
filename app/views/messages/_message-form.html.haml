@@ -1,0 +1,9 @@
+.footer
+  .form
+    .input-box
+      = form_for [@group, @message] do |f|
+        = f.text_field :text, class: 'input-box__text', placeholder: 'type a message'
+        = f.label :image, class: 'image_label' do
+          %i.fa.fa-image
+          = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'input-box__submit-btn'

@@ -11,37 +11,47 @@ $alert_orange: #F35500;
   }
 }
 
-@mixin right-content{
-width: calc(100% - 300px);
-box-sizing: border-box;
-}
 
 @mixin letter-gray{
 color: #999;
 font-size: 12px;
 }
 
-// layout 全体------------------------------------//
-.wrapper{
-  @include clearfix;
+@mixin white_link {
+  text-decoration: none;
+  &::before{
+    color: $white;
+  }
+  &:hover{
+    color: rgba(255, 255, 255, 0.6);
+  }
+  &:visited{
+    color: $white;
+  }
 }
 
-.flash-box{
-  background: $accent-color;
+//  全体------------------------------------//
+
+html {
+  box-sizing: border-box;
+  *,*:before,*:after {
+    box-sizing: inherit;
+  }
 }
 
 a{
   text-decoration: none;
+  &:link{
+    color: inherit;
+  }
+  &:hover{
+    color: inherit;
+  }
   &:visited{
     color: inherit;
   }
 }
 
-.chat-side{
-  width: 300px;
-  height: 100vh;
-  background: #2f3e51;
-  color: $letter-white;
-  float: left;
+.hidden {
+  display: none;
 }
-
