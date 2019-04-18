@@ -6,6 +6,35 @@
 // @import "./chat.scss";
 // @import "./side-bar.scss"
 
+// レイアウト --------------------------------------//
+@mixin left-content {
+  width: 300px;
+  padding: 0 20px;
+  float: left;
+  color: $letter-white;
+}
+
+@mixin right-content{
+  width: calc(100% - 300px);
+  float: right;
+  padding: 0 40px;
+  }
+
+.wrapper{
+  @include clearfix;
+
+}
+
+.header{
+  clear: both;
+  width: 100%;
+  height: 100px;
+}
+
+.contents{
+  clear:both;
+}
+
 // flash --------------------------------------//
 .notification {
   .notice {
@@ -21,60 +50,18 @@
   }
 }
 
-// chat-side ----------------------------------//
-
+// header ----------------------------------//
 .side-header{
-  box-sizing: border-box;
+  @include left-content;
   height: 100px;
-  padding: 35px 20px 0 20px;
+  padding-top: 35px;
   background: #253141;
 }
 
-.side-header__user-name{
-  font-size:16px;
-  font-weight: bold;
-  display: inline-block;
-}
-
-.user-menu{
-  float: right;
-}
-
-.user-menu__edit-user{
-  display: inline-block;
-}
-.user-menu__new-group{
-  display: inline-block;
-}
-
-.groups{
-  padding: 40px 20px 0 20px;
-}
-
-.group__group-name{
-  font-size: 15px;
-  font-weight: bold;
-}
-
-.group__latest-message{
-  margin-top: 5px;
-  font-size: 11px;
-  font-weight: bold;
-}
-
-// chat-main ----------------------------------//
-.chat-main{
-  @include right-content();
-  height: 100vh;
-  background: #fafafa;
-  float: left;
-}
-
 .main-header{
-  padding: 0 40px;
+  @include right-content;
   background: #fff;
   border-bottom: 1px solid #eee;
-  @include clearfix();
 }
 
 .main-header__edit-btn{
@@ -103,57 +90,52 @@
   margin: 15px 5px 0 0;
 }
 
-// form --------------------------------------------/
-.form{
-  @include right-content();
-  padding: 20px 40px;
-  background: #ccc;
-  position: absolute;
-    bottom: 0px;
-    right: 0px;
-}
-
-.new-message{
-  width: 100%;
-  height: 50px;
-}
-
-.input-box{
+.side-header__user-name{
+  font-size:16px;
+  font-weight: bold;
   display: inline-block;
-  width: calc(100% - 135px);
-  margin: 0px 10px;
-  background: #fff;
-  position: relative;
 }
 
-.input-box__text{
-  width: 100%;
-  height: 50px;
-  padding-left: 10px;
-  color: $message-text-color;
-  border: 0px;
-}
-
-.image_label{
-  font-size: 1.3em;
-  float: right;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-
-.new-message__submit-btn{
-  width: 100px;
-  height: 50px;
-  margin-left: 15px;
-  background: $accent-color;
-  color: #fff;
+.user-menu{
   float: right;
 }
 
-// index.html.hml ----------------------------------/
+.user-menu__edit-user{
+  display: inline-block;
+}
+.user-menu__new-group{
+  display: inline-block;
+}
+
+// side-bar ----------------------------------//
+
+.side-bar{
+  @include left-content;
+  height: 100vh;
+  background: #2f3e51;
+}
+
+.group__group-name{
+  margin-top: 40px;  
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.group__latest-message{
+  margin-top: 5px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+// chat-main ----------------------------------//
+.chat-main{
+  @include right-content;
+  background: #fafafa;
+}
+
+
 .message{
-  padding: 40px 40px 0;
+  padding-top: 40px;
 }
 
 .upper-info__user{
@@ -169,9 +151,59 @@
   display: inline;
 }
 
-.message__text{
+.lower-message__text{
   font-size: 14px;
   color: $message-text-color;
   margin: 10px 0 40px 0;
 }
+
+
+// form --------------------------------------------/
+.footer{
+  @include right-content();
+  background: #ccc;
+  position: relative;
+    bottom: 0px;
+    right:  0px;
+}
+.form{
+  @include clearfix;
+  padding: 20px 0;
+  width: 100%;
+}
+.input-box{
+  height: 50px;
+  width: calc(100%-135px);
+  margin: 0px 10px;
+  background: #fff;
+  position: relative;
+  float: left;
+}
+
+.input-box__text{
+  width: 100%;
+  height: 50px;
+  padding-left: 10px;
+  color: $message-text-color;
+  display: inline-block;
+  border: 0px;
+}
+
+.image_label{
+  font-size: 1.3em;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  float: right;
+}
+
+.input-box__submit-btn{
+  width: 100px;
+  height: 50px;
+  display: inline-block;
+  margin-left: 15px;
+  background: $accent-color;
+  color: #fff;
+}
+
 
