@@ -1,3 +1,5 @@
+= render 'shared/header'
+= render 'shared/side-bar'
 .chat-main
   = render partial: 'message-main', collection: @messages, as: :message
 = render 'message-form'
