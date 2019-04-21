@@ -113,6 +113,7 @@
   @include left-content;
   height: 100vh;
   background: #2f3e51;
+  overflow: scroll;
 }
 
 .group__group-name{
@@ -131,6 +132,8 @@
 .chat-main{
   @include right-content;
   background: #fafafa;
+  height: 600px;
+  overflow: scroll;
 }
 
 
@@ -200,10 +203,10 @@
 .input-box__submit-btn{
   width: 100px;
   height: 50px;
-  display: inline-block;
   margin-left: 15px;
   background: $accent-color;
   color: #fff;
+  float: right;
 }
 
 

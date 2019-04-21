@@ -5,33 +5,11 @@
     %title ChatSpace
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"}
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     %link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.8.1/css/all.css", :integrity => "sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf", :rel => "stylesheet"}/
 
   %body
-    
     = render 'shared/notifications'
-    .header
-      .side-header 
-        %p.side-header__user-name
-          =current_user.name
-
-        %ul.user-menu
-          %li.user-menu__edit-user
-            = link_to edit_users_path (current_user) do
-              %i.fa.fa-cog
-          %li.user-menu__new-group
-            = link_to new_group_path do
-              %i.fa.fa-edit
-
-      .main-header
-        .current-group 
-          %h2.current-group__name TEST GROUP
-          %ul.member-list
-            %li.member-list__member Member: ユーザー１
-            %li.member-list__member ユーザー２
-        .main-header__edit-btn 
-          = link_to 'Edit', edit_group_path(current_user)
     .contents
-      = render 'shared/side-bar'
       = yield

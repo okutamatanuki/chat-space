@@ -1,0 +1,21 @@
+.header
+  .side-header 
+    %p.side-header__user-name
+      =current_user.name
+
+    %ul.user-menu
+      %li.user-menu__edit-user
+        = link_to edit_users_path (current_user) do
+          %i.fa.fa-cog
+      %li.user-menu__new-group
+        = link_to new_group_path do
+          %i.fa.fa-edit
+
+  .main-header
+    .current-group 
+      %h2.current-group__name TEST GROUP
+      %ul.member-list
+        %li.member-list__member Member: ユーザー１
+        %li.member-list__member ユーザー２
+    .main-header__edit-btn 
+      = link_to 'Edit', edit_group_path(current_user)
