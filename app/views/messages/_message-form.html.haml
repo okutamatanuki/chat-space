@@ -1,7 +1,7 @@
 .footer
   .form
     .input-box
-      = form_for [@group, @message] do |f|
+      = form_for [@group, @message], html: {id: 'info'} do |f|
         = f.text_field :text, class: 'input-box__text', placeholder: 'type a message'
         = f.label :image, class: 'image_label' do
           %i.fa.fa-image

@@ -1,0 +1,7 @@
+<% if message.text.present? %>
+      <p><%=message.text %></p>
+        <%= image_tag message.image.url, class: 'lower-message__image' if message.image.present? %>
+
+        ${ if message.text.present? }
+      <p>${ message.text }</p>
+        <img src= "${message.image.url}", class: 'lower-message__image' ${if message.image.present?} %>
