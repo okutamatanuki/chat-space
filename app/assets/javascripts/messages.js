@@ -37,11 +37,8 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.chat-main').append(html)
-      $('.input-box__text').val('')
-
-      $('.input-box__submit-btn').on('click', function() {
-        $('.chat-main').animate({scrollTop: $('.chat-main')[0].scrollHeight}, 'fast');
-        });
+      $('#info')[0].reset();
+      $('.chat-main').animate({scrollTop: $('.chat-main')[0].scrollHeight}, 'fast');
     })
     .fail(function(){
       alert('メッセージを入力してください。');
