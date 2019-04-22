@@ -1,19 +1,21 @@
 $(function(){
-  function buildHTML(data){
+  function buildHTML(message){
+    Message = message.text ? message.text : ('');
+    Image = message.image.url? message.image.url : ('');
+
     var messageContainer = `<div class="message">
                           <div class="upper-info">
                             <div class= "upper-info__user">
-                              <p>${ data.user_name }</p>
+                              <p>${ message.user_name }</p>
                             </div>
                             <div class="upper-info__date"> 
-                              <p>${data.date}</p>
+                              <p>${message.date}</p>
                             </div>
                           </div>
                           <div class="lower-message">
                             <div class="lower-message__text">
-                                <p>${data.text}
-                                <img src="${data.image.url}", class="lower-message__image">
-                                </p>
+                                <p>${Message}</p>
+                                <img src="${Image}", class="lower-message__image">
                             </div>
                           </div>
                         </div>`;
@@ -36,6 +38,10 @@ $(function(){
       var html = buildHTML(data);
       $('.chat-main').append(html)
       $('.input-box__text').val('')
+
+      $('.input-box__submit-btn').on('click', function() {
+        $('.chat-main').animate({scrollTop: $('.chat-main')[0].scrollHeight}, 'fast');
+        });
     })
     .fail(function(){
       alert('メッセージを入力してください。');
