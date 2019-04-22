@@ -134,8 +134,9 @@
 .chat-main{
   @include right-content;
   background: #fafafa;
-  width: calc(100%-300px);
-  height: 620px; //あとで修正
+
+  height: 600px;
+
   overflow: scroll;
 }
 
@@ -176,40 +177,35 @@
   @include clearfix;
   padding: 20px 0;
   width: 100%;
-}
-.input-box{
-  height: 50px;
-  width: calc(100%-135px);
-  margin: 0px 10px;
-  background: #fff;
-  position: relative;
-  float: left;
-}
 
-.input-box__text{
-  width: 100%;
-  height: 50px;
-  padding-left: 10px;
-  color: $message-text-color;
-  display: inline-block;
-  border: 0px;
-}
+  .input-box__text{
+    width: calc(100%-150px);
+    min-width: 62%;
+    height: 50px;
+    padding-left: 10px;
+    background: #fff;
+    color: $message-text-color;
+    float: left;
+    border: 0px;
+  }
+  .mask{
+    background: #fff;
+    height: 50px;
+    float: left;
+    padding-right: 10px;
+    .image_label{
+      font-size: 1.2em;
+      line-height: 50px;
+      float: right;
+    }
+  }
 
-.image_label{
-  font-size: 1.3em;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  float: right;
-}
-
-.input-box__submit-btn{
-  width: 100px;
-  height: 50px;
-  margin-left: 15px;
-  background: $accent-color;
-  color: #fff;
-  float: right;
-}
-
-
+  .input-box__submit-btn{
+    width: 100px;
+    height: 50px;
+    margin-left: 15px;
+    background: $accent-color;
+    color: #fff;
+    float: right;
+  }
+} 
