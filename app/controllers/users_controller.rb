@@ -1,5 +1,14 @@
 class UsersController < ApplicationController
+  before_action :set_group, only:[:index]
 
+  def index
+    @users = User.all
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+  
   def edit
   end
 
@@ -16,8 +25,11 @@ class UsersController < ApplicationController
   end
 
   private
-
   def user_params
     params.require(:user).permit(:name, :email)
   end
+
+  # def set_group
+  #   @group = Group.find(params[:id])
+  # end
 end

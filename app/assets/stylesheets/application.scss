@@ -86,6 +86,13 @@
   color: #333;
 }
 
+.member-list::before{
+  content: 'Member:';
+  float: left;
+  @include letter-gray();
+  margin: 15px 5px 0 0;
+}
+
 .member-list__member{
   @include letter-gray();
   float: left;

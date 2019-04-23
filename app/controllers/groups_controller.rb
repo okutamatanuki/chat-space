@@ -6,6 +6,7 @@ class GroupsController < ApplicationController
     @group.users << current_user #現在ログイン中のユーザーを新規作成したグループに追加
   end
 
+
   def create
     @group = Group.new(group_params)
     if @group.save
