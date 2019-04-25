@@ -3,7 +3,7 @@ $(function(){
 
   function appendUser(user) {
     var html = `<div class='chat-group-user clearfix'>
-                      <p class='chat-group-user__name'>
+                      <p class='chat-group-user__name' value='${user.id}' data-name="${user.name}" name='group[user_ids][]'>
                         ${user.name}
                       </p>
                       <a class='user-search-add chat-group-user__btn chat-group-user__btn--add'>
@@ -11,41 +11,77 @@ $(function(){
                       </a>
                     </div>`;
     search_list.append(html);
-}
+    };
 
-  //エラーの時の処理（msgの中身は下で定義）
   function appendErrMsg(msg) {
-    var html = `<li>
-                  <div class='listview__element--right-icon'>${ msg }</div>
+    var html = `<li style="list-style: none;">
+                  <div class='listview__element--right-icon'>"${ msg }</div>
                 </li>`
-    search_list.append(html);
-  }
+      search_list.append(html);
+    };
+  
+  var group_member_list = $("#chat-group-users");
+
+  function appendUserToAddList(userId, userName){
+    var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
+        <input name='group[user_ids][]' type='hidden' value='${userId}'>
+        <p class='chat-group-user__name'>${userName}</p>
+        <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
+      </div>`;
+      group_member_list.append(html);
+    };
+
 
   $("#user-search-field").on("keyup", function(){
     var input = $("#user-search-field").val();
-    var href = window.location.href
+    var reg = new RegExp("^" + input);
 
     $.ajax({
       type: 'GET',
-      url: href,
-      data: {name: input},
+      url: '/users',
+      data: {search: input},
       dataType: 'json'
-    })
+      })
+    .done(function(users){
+      $('#user-search-result').empty(); 
 
-    .done(function(inputs){
-      if (users.length !== 0) {
-        users.forEach(function(user){
-          appendUser(user);
-        });
-      }
-      else{
-        var msg = "一致するユーザーはいません";
-        appendErrMsg(msg);
-      }
-    })
-    .fail(function(){
-      debugger;
-      alert('ユーザーの検索に失敗しました');
-    })
+        if (users.length !== 0){
+          if (input.length !== 0){
+
+            users.forEach(function(user){
+              if (user.name.match(reg)) {
+                $(appendUser(user));
+                }; 
+              }); 
+              
+          }else{
+            $('#user-search-result').empty();
+          }; // Deleteキー等でフォームの入力値を消した時「一致するユーザーがいません」を表示させないようにする
+
+        }else{
+          $('#user-search-result').empty();
+          var msg = '一致するユーザーはいません';
+              appendErrMsg(msg);
+        };
+      }) //正規表現オプジェクトregと前方一致でリストを表示する処理end
+
+      .fail(function(){
+        alert('ユーザーの検索に失敗しました');
+      }); // ajax end
+    }); //ユーザーが何か入力(keyup)した時の処理end
+
+    $(function(){
+      $(document).on("click", '.chat-group-user__btn--add',function(){
+        var userId = $('p.chat-group-user__name').attr('value');
+        var userName = $('p.chat-group-user__name').data('name')
+        appendUserToAddList(userId, userName);
+        $(this).parent().remove();
+      }); 
+    });//新たに読み込んだイベントの処理end
+
+    $(function(){
+      $(document).on("click", '.chat-group-user__btn--remove',function(){
+        $(this).parent().remove();
+      });
+    }); // 「削除」ボタンを押すとリストが消える処理end
   });
-});

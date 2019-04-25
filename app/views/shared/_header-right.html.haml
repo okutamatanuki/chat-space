@@ -1,0 +1,10 @@
+.main-header
+  .current-group 
+    %h2.current-group__name
+      = @group.name
+    %ul.member-list
+      - @group.users.each do |group_user|
+        %li.member-list__member= group_user.name
+        
+  .main-header__edit-btn 
+    = link_to 'Edit', edit_group_path(@group.id)

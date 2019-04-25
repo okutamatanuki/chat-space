@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_group, only:[:index]
+  # before_action :set_group, only:[:index]
 
   def index
-    @users = User.all
+    @users = User.where('name LIKE(?)', "%#{params[:search]}%").limit(20).where.not(id: current_user.id)
     respond_to do |format|
       format.html
       format.json
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email)
   end
 
-  # def set_group
-  #   @group = Group.find(params[:id])
-  # end
+  def set_group
+    @group = Group.find(params[:id])
+  end
 end
