@@ -38,17 +38,18 @@ $(function(){
       var html = buildHTML(data);
       $('.chat-main').append(html)
 
+
       $('#info')[0].reset();
 
 
       $('.input-box__submit-btn').on('click', function() {
         $('.chat-main').animate({scrollTop: $('.chat-main')[0].scrollHeight}, 'fast');
         });
+
     })
     .fail(function(){
       alert('メッセージを入力してください。');
     })
   });
-<<<<<<< HEAD
 });
 
