@@ -1,0 +1,47 @@
+
+// side-bar ----------------------------------//
+
+.group__group-name{
+  margin-top: 40px;  
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.group__latest-message{
+  margin-top: 5px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+// chat-main ----------------------------------//
+.chat-main{
+  @include right-content;
+  background: #fafafa;
+
+  height: 600px;
+  overflow: scroll;
+}
+
+
+.message{
+  padding-top: 40px;
+}
+
+.upper-info__user{
+  font-size: 16px;
+  font-weight: bold;
+  color: $message-text-color;
+  display: inline;
+}
+
+.upper-info__date{
+  font-size: 12px;
+  color: #999;
+  display: inline;
+}
+
+.lower-message__text{
+  font-size: 14px;
+  color: $message-text-color;
+  margin: 10px 0 40px 0;
+}

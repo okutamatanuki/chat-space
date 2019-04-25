@@ -1,10 +1,14 @@
 class GroupsController < ApplicationController
   before_action :set_group, only:[:edit, :update]
-  
+
+  def index
+  end
+
   def new
     @group = Group.new
     @group.users << current_user #現在ログイン中のユーザーを新規作成したグループに追加
   end
+
 
   def create
     @group = Group.new(group_params)

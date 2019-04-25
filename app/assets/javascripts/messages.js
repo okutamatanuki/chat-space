@@ -8,7 +8,7 @@ $(function(){
                             <div class= "upper-info__user">
                               <p>${ message.user_name }</p>
                             </div>
-                            <div class="upper-info__date"> 
+                            <div class="upper-info__date">
                               <p>${message.date}</p>
                             </div>
                           </div>
@@ -38,7 +38,10 @@ $(function(){
       var html = buildHTML(data);
       $('.chat-main').append(html)
       $('#info')[0].reset();
-      $('.chat-main').animate({scrollTop: $('.chat-main')[0].scrollHeight}, 'fast');
+
+      $('.input-box__submit-btn').on('click', function() {
+        $('.chat-main').animate({scrollTop: $('.chat-main')[0].scrollHeight}, 'fast');
+        });
     })
     .fail(function(){
       alert('メッセージを入力してください。');

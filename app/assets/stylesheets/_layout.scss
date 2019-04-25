@@ -1,0 +1,55 @@
+// レイアウト --------------------------------------//
+
+.wrapper{
+  @include clearfix;
+  min-width: 800px;
+  max-height: 800px;
+}
+
+.header{
+  clear: both;
+  width: 100%;
+  height: 100px;
+  min-width: 800px;
+}
+
+.contents{
+  clear:both;
+  height: 100vh;
+}
+
+@mixin left-content {
+  width: 300px;
+  height: calc(100%-100px);
+  padding: 0 20px;
+  float: left;
+  color: $letter-white;
+}
+
+@mixin right-content{
+  width: calc(100% - 300px);
+  float: right;
+  height: calc(100%-100px);
+  padding: 0 40px;
+  }
+
+.side-bar{
+  @include left-content;
+  height: 100%;
+  background: #2f3e51;
+  overflow: scroll;
+}
+// flash --------------------------------------//
+.notification {
+  .notice {
+    background-color: $accent-color;
+    color: $letter-white;
+    text-align: center;
+  }
+
+  .alert {
+    background-color: $alert_orange;
+    color: $letter-white;
+    text-align: center;
+  }
+}

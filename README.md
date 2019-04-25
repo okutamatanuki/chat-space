@@ -7,8 +7,8 @@
 
 ### Association
 - has_many :messages
-- has_many :members
-- has_many :groups, through: :members
+- has_many :group_user
+- has_many :groups, through: :group_user
 
 ## group_userテーブル
 
