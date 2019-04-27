@@ -14,15 +14,6 @@
 }
 
 // chat-main ----------------------------------//
-.chat-main{
-  @include right-content;
-  background: #fafafa;
-
-  height: 600px;
-  overflow: scroll;
-}
-
-
 .message{
   padding-top: 40px;
 }
