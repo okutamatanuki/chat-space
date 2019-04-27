@@ -15,12 +15,13 @@
 
 .contents{
   clear:both;
-  height: 100vh;
+  height: calc(100vh - 100px);
+  box-sizing: border-box;
 }
 
 @mixin left-content {
   width: 300px;
-  height: calc(100%-100px);
+  height: calc(100vh - 100px);
   padding: 0 20px;
   float: left;
   color: $letter-white;
@@ -29,13 +30,18 @@
 @mixin right-content{
   width: calc(100% - 300px);
   float: right;
-  height: calc(100%-100px);
   padding: 0 40px;
   }
 
+.chat-main{
+  @include right-content;
+  background: #fafafa;
+  height: calc(100vh - 190px);
+  overflow: scroll;
+}
+
 .side-bar{
   @include left-content;
-  height: 100%;
   background: #2f3e51;
   overflow: scroll;
 }
