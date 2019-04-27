@@ -97,9 +97,8 @@ $(function(){
     }) //.done end
 
     .fail(function(){
-      console.log('error');
+      alert('error');
     }); // fail end
       
   }; //update関数end
 }); //自動更新機能end
-
