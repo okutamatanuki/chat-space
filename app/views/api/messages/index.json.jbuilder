@@ -1,4 +1,3 @@
-
   json.array! @messages do |message|
     json.text        message.text
     json.image       message.image
