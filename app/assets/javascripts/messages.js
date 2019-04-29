@@ -47,6 +47,7 @@ $(function(){
   });
 }); //メッセージの非同期通信end
 
+
 $(function(){
 
   var buildAutoUpdateMessage = function(message){
@@ -69,7 +70,7 @@ $(function(){
                         </div>
                       </div>`;
     return html;
-    }; // 
+    }; 
 
 
   

@@ -47,6 +47,8 @@
 }
 // flash --------------------------------------//
 .notification {
+  position: fixed;
+  width: 100%;
   .notice {
     background-color: $accent-color;
     color: $letter-white;
