@@ -71,7 +71,7 @@ $(function(){
     }); //ユーザーが何か入力(keyup)した時の処理end
 
     $(function(){
-      $(document).on("click", '.chat-group-user__btn--adduser-search-add, .chat-group-user__btn, .chat-group-user__btn--add', function(){
+      $(document).on("click", '.chat-group-user__btn--add', function(){
         var userId = $('p.chat-group-user__name').attr('value');
         var userName = $('p.chat-group-user__name').data('name')
         appendUserToAddList(userId, userName);
