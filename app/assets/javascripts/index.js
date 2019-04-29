@@ -60,7 +60,7 @@ $(function(){
 
         }else{
           $('#user-search-result').empty();
-          var msg = '一致するユーザーはいません';
+          var msg = "一致するユーザーはいません";
               appendErrMsg(msg);
         };
       }) //正規表現オプジェクトregと前方一致でリストを表示する処理end
