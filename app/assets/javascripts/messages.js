@@ -25,7 +25,7 @@ $(function(){
   $("#info").on('submit', function(e){
     e.preventDefault();
     var userInput = new FormData(this);
-    var href = window.location.href
+    var href = `groups/${group.id}/messages`
     $.ajax({
       url: href,
       type: "POST",
